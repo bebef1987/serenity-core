@@ -50,6 +50,9 @@ public class BrowserStackRemoteDriverCapabilities implements RemoteDriverCapabil
         if (isNotEmpty(remotePlatform)) {
             capabilities.setPlatform(Platform.valueOf(remotePlatform));
         }
+        if (capabilities.getCapability("build") != null){
+            capabilities.setCapability("build", capabilities.getCapability("build").toString());
+        }
     }
 
     private String bestGuessOfTestName() {
